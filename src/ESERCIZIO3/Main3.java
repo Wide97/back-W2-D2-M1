@@ -30,6 +30,15 @@ public class Main3 {
             System.out.println("Nessun contatto trovato con numero: " + numeroDaCercare);
         }
 
+        System.out.println("Inserisci il nome da cercare per numero di telefono: ");
+        String nomeDaCercare = scanner.nextLine();
+        String numeroTrovato = rubrica.cercaPersone(nomeDaCercare);
+        if (numeroTrovato != null) {
+            System.out.println("Il numero di telefono di " + nomeDaCercare + " è " + numeroTrovato);
+        } else {
+            System.out.println("Nessun numero trovato per " + nomeDaCercare);
+        }
+
         scanner.close();
 
 

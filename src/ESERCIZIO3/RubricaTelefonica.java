@@ -27,4 +27,8 @@ public class RubricaTelefonica {
         }
         return null;
     }
+
+    public String cercaPersone(String nome) {
+        return contatti.get(nome);
+    }
 }
