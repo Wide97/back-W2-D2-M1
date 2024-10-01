@@ -31,4 +31,11 @@ public class RubricaTelefonica {
     public String cercaPersone(String nome) {
         return contatti.get(nome);
     }
+
+    public void stampaContatti() {
+        System.out.println("Contatti nella rubrica: ");
+        for (Map.Entry<String, String> entry : contatti.entrySet()) {
+            System.out.println("Nome: " + entry.getKey() + ", Telefono: " + entry.getValue());
+        }
+    }
 }
