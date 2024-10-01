@@ -9,4 +9,9 @@ public class RubricaTelefonica {
     public RubricaTelefonica() {
         contatti = new HashMap<>();
     }
+
+    public void aggiungiContatto(String nome, String telefono) {
+        contatti.put(nome, telefono);
+
+    }
 }
