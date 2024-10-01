@@ -38,6 +38,10 @@ public class ParolaManager {
                 trovatoDuplicati = true;
             }
         }
+
+        int numeroPaoleDistinte = conteggio.size();
+        System.out.println("Numero di parole distinte: " + numeroPaoleDistinte);
+
         if (!trovatoDuplicati) {
             System.out.println("Nessun duplicato trovato");
         }
