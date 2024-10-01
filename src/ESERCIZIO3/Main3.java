@@ -16,6 +16,11 @@ public class Main3 {
         rubrica.aggiungiContatto(nome, telefono);
         System.out.println("Contatto aggiunto: " + nome + " - " + telefono);
 
+        System.out.println("Inserisci il nome del contatto da rimuovere: ");
+        String nomeDaRimuovere = scanner.nextLine();
+        rubrica.rimuoviContatto(nomeDaRimuovere);
+        System.out.println("COntatto rimosso (se esistente) ");
+
         scanner.close();
 
 

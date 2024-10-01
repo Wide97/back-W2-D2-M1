@@ -14,4 +14,8 @@ public class RubricaTelefonica {
         contatti.put(nome, telefono);
 
     }
+
+    public void rimuoviContatto(String nome) {
+        contatti.remove(nome);
+    }
 }
