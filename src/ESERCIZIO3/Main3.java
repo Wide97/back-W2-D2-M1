@@ -21,6 +21,15 @@ public class Main3 {
         rubrica.rimuoviContatto(nomeDaRimuovere);
         System.out.println("COntatto rimosso (se esistente) ");
 
+        System.out.println("Inserisci il numero da cercare: ");
+        String numeroDaCercare = scanner.nextLine();
+        String nomeTrovato = rubrica.cercaPerTelefono(numeroDaCercare);
+        if (nomeTrovato != null) {
+            System.out.println("Il contatto con numero " + numeroDaCercare + " è " + nomeTrovato);
+        } else {
+            System.out.println("Nessun contatto trovato con numero: " + numeroDaCercare);
+        }
+
         scanner.close();
 
 

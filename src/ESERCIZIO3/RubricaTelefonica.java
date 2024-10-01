@@ -18,4 +18,13 @@ public class RubricaTelefonica {
     public void rimuoviContatto(String nome) {
         contatti.remove(nome);
     }
+
+    public String cercaPerTelefono(String telefono) {
+        for (Map.Entry<String, String> entry : contatti.entrySet()) {
+            if (entry.getValue().equals(telefono)) {
+                return entry.getKey();
+            }
+        }
+        return null;
+    }
 }
