@@ -1,14 +1,17 @@
 package ESERCIZIO1;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Scanner;
 
 public class ParolaManager {
 
-    private List<String> parole;
+    private HashSet<String> parole;
     private Scanner scanner;
 
     public ParolaManager() {
-        parole = new ArrayList<>();
+        parole = new HashSet<>();
         scanner = new Scanner(System.in);
     }
 
@@ -24,14 +27,17 @@ public class ParolaManager {
         }
     }
 
-    public void stampaParoleDuplicate() {
+    public void stampaParole() {
         Map<String, Integer> conteggio = new HashMap<>();
+        boolean trovatoDuplicati = false;
+
+
         for (String parola : parole) {
             conteggio.put(parola, conteggio.getOrDefault(parola, 0) + 1);
         }
-        System.out.println("Parole duplicate: ");
-        boolean trovatoDuplicati = false;
 
+
+        System.out.println("Parole duplicate:");
         for (Map.Entry<String, Integer> entry : conteggio.entrySet()) {
             if (entry.getValue() > 1) {
                 System.out.println(entry.getKey());
@@ -41,6 +47,11 @@ public class ParolaManager {
 
         int numeroPaoleDistinte = conteggio.size();
         System.out.println("Numero di parole distinte: " + numeroPaoleDistinte);
+
+        System.out.println("Elenco delle parole distinte: ");
+        for (String parola : parole) {
+            System.out.println(parola);
+        }
 
         if (!trovatoDuplicati) {
             System.out.println("Nessun duplicato trovato");
