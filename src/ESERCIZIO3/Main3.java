@@ -4,33 +4,49 @@ import java.util.Scanner;
 
 public class Main3 {
     public static void main(String[] args) {
-
         RubricaTelefonica rubrica = new RubricaTelefonica();
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Inserisci il nome: ");
-        String nome = scanner.nextLine();
-        System.out.println("inserisci il telefono: ");
-        String telefono = scanner.nextLine();
+        while (true) {
 
-        rubrica.aggiungiContatto(nome, telefono);
-        System.out.println("Contatto aggiunto: " + nome + " - " + telefono);
+            System.out.print("Inserisci il nome (oppure premi 0 per terminare): ");
+            String nome = scanner.nextLine();
+            if (nome.equals("0")) {
+                break;
+            }
 
-        System.out.println("Inserisci il nome del contatto da rimuovere: ");
-        String nomeDaRimuovere = scanner.nextLine();
-        rubrica.rimuoviContatto(nomeDaRimuovere);
-        System.out.println("COntatto rimosso (se esistente) ");
+            System.out.print("Inserisci il numero di telefono: ");
+            String telefono = scanner.nextLine();
 
-        System.out.println("Inserisci il numero da cercare: ");
+            rubrica.aggiungiContatto(nome, telefono);
+            System.out.println("Contatto aggiunto: " + nome + " - " + telefono);
+        }
+
+
+        while (true) {
+            System.out.print("Vuoi rimuovere un contatto? (S/N): ");
+            String risposta = scanner.nextLine();
+            if (risposta.equalsIgnoreCase("N")) {
+                break;
+            }
+            System.out.print("Inserisci il nome del contatto da rimuovere: ");
+            String nomeDaRimuovere = scanner.nextLine();
+            rubrica.rimuoviContatto(nomeDaRimuovere);
+            System.out.println("Contatto rimosso (se esistente).");
+        }
+
+
+        System.out.print("Inserisci il numero di telefono da cercare: ");
         String numeroDaCercare = scanner.nextLine();
         String nomeTrovato = rubrica.cercaPerTelefono(numeroDaCercare);
         if (nomeTrovato != null) {
             System.out.println("Il contatto con numero " + numeroDaCercare + " è " + nomeTrovato);
         } else {
-            System.out.println("Nessun contatto trovato con numero: " + numeroDaCercare);
+            System.out.println("Nessun contatto trovato con il numero " + numeroDaCercare);
         }
 
-        System.out.println("Inserisci il nome da cercare per numero di telefono: ");
+
+        System.out.print("Inserisci il nome da cercare per il numero di telefono: ");
         String nomeDaCercare = scanner.nextLine();
         String numeroTrovato = rubrica.cercaPersone(nomeDaCercare);
         if (numeroTrovato != null) {
@@ -39,10 +55,9 @@ public class Main3 {
             System.out.println("Nessun numero trovato per " + nomeDaCercare);
         }
 
+        
         rubrica.stampaContatti();
 
         scanner.close();
-
-
     }
 }
