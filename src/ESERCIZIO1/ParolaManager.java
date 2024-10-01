@@ -1,11 +1,10 @@
 package ESERCIZIO1;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class ParolaManager {
 
-    private ArrayList<String> parole;
+    private List<String> parole;
     private Scanner scanner;
 
     public ParolaManager() {
@@ -25,10 +24,22 @@ public class ParolaManager {
         }
     }
 
-    public void stampaParole() {
-        System.out.println("Le parole inserite sono:");
+    public void stampaParoleDuplicate() {
+        Map<String, Integer> conteggio = new HashMap<>();
         for (String parola : parole) {
-            System.out.println(parola);
+            conteggio.put(parola, conteggio.getOrDefault(parola, 0) + 1);
+        }
+        System.out.println("Parole duplicate: ");
+        boolean trovatoDuplicati = false;
+
+        for (Map.Entry<String, Integer> entry : conteggio.entrySet()) {
+            if (entry.getValue() > 1) {
+                System.out.println(entry.getKey());
+                trovatoDuplicati = true;
+            }
+        }
+        if (!trovatoDuplicati) {
+            System.out.println("Nessun duplicato trovato");
         }
     }
 }
